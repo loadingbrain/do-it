@@ -50,6 +50,7 @@
     </style>
 </head>
 <body>
+    
     <div class="label">Are you gay?</div>
     <br>
     <div class="label">If you skip, then you will end up gay</div>
@@ -88,6 +89,7 @@
             label1.textContent = 'OH NO!';
             label2.textContent = 'From now on you are gay';
 
+            btnYes.removeEventListener('mouseover', moveButton);
             btnYes.disabled = true;
         }
 
@@ -101,12 +103,12 @@
             }
         }
 
-        btnYes.addEventListener('mousedown', () => {
+        btnYes.addEventListener('mouseenter', () => {
             isMoving = true;
             moveButton();
         });
 
-        btnYes.addEventListener('mouseup', () => {
+        btnYes.addEventListener('mouseleave', () => {
             isMoving = false;
         });
 
@@ -115,9 +117,7 @@
             resultMessage.textContent = 'Bruh, From now on you are gay';
             document.body.appendChild(resultMessage);
         });
-
-        setInterval(moveButton, 10000);
+        setInterval(moveButton, 10000000);
     </script>
 </body>
 </html>
-
