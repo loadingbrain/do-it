@@ -89,7 +89,7 @@
             label1.textContent = 'OH NO!';
             label2.textContent = 'From now on you are gay';
 
-            btnYes.removeEventListener('mouseover', moveButton);
+            btnYes.removeEventListener('touchstart', moveButton);
             btnYes.disabled = true;
         }
 
@@ -103,21 +103,15 @@
             }
         }
 
-        btnYes.addEventListener('mouseenter', () => {
+        btnYes.addEventListener('touchstart', () => {
             isMoving = true;
             moveButton();
         });
 
-        btnYes.addEventListener('mouseleave', () => {
+        btnYes.addEventListener('touchend', () => {
             isMoving = false;
         });
-
-        btnYes.addEventListener('click', () => {
-            const resultMessage = document.createElement('div');
-            resultMessage.textContent = 'Bruh, From now on you are gay';
-            document.body.appendChild(resultMessage);
-        });
-        setInterval(moveButton, 10000000);
+        setInterval(moveButton, 10000);
     </script>
 </body>
 </html>
