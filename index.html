@@ -99,10 +99,6 @@
             btnYes.disabled = true;
         }
 
-        function handleNoClick() {
-
-        }
-
         closeModal.onclick = function() {
             resultModal.style.display = 'none';
         }
@@ -129,12 +125,7 @@
             document.body.appendChild(resultMessage);
         });
 
-        btnNo.addEventListener('click', handleNoClick);
-
         setInterval(moveButton, 10000000);
     </script>
 </body>
 </html>
-
-
-
