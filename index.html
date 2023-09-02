@@ -25,7 +25,6 @@
             position: absolute;
         }
 
-      
         #btnYes {
             left: 50%;
             top: 35%;
@@ -34,7 +33,7 @@
 
         #btnNo {
             left: 50%;
-            top: 45%; 
+            top: 45%;
             transform: translate(-50%, -50%);
         }
 
@@ -42,7 +41,7 @@
             .label {
                 font-size: 18px;
             }
-        
+
             .button {
                 font-size: 18px;
                 padding: 8px 16px;
@@ -74,7 +73,6 @@
 
     <script>
         const btnYes = document.getElementById('btnYes');
-        const btnNo = document.getElementById('btnNo');
         const label1 = document.getElementsByClassName('label')[0];
         const label2 = document.getElementsByClassName('label')[1];
         const resultModal = document.getElementById('resultModal');
@@ -82,30 +80,27 @@
         const resultText2 = document.getElementById('resultText2');
         const closeModal = document.querySelector('.close');
         let isMoving = false;
-        
+
         function moveButton() {
             if (!isMoving) {
                 return;
             }
-            
+
             const randomX = Math.floor(Math.random() * (window.innerWidth - btnYes.offsetWidth));
             const randomY = Math.floor(Math.random() * (window.innerHeight - btnYes.offsetHeight));
-            
+
             btnYes.style.left = randomX + 'px';
             btnYes.style.top = randomY + 'px';
-            
-             
+
             label1.textContent = 'OH NO!';
             label2.textContent = 'From now on you are gay';
-            
+
             btnYes.removeEventListener('mouseover', moveButton);
             btnYes.disabled = true;
         }
-        
-  
-        
+
         function handleNoClick() {
-       
+
         }
 
         closeModal.onclick = function() {
@@ -127,7 +122,12 @@
             isMoving = false;
         });
 
-        btnYes.addEventListener('click', handleYesClick);
+        btnYes.addEventListener('click', () => {
+            // Display the result message at the bottom
+            const resultMessage = document.createElement('div');
+            resultMessage.textContent = 'Bruh, From now on you are gay';
+            document.body.appendChild(resultMessage);
+        });
 
         btnNo.addEventListener('click', handleNoClick);
 
@@ -135,5 +135,6 @@
     </script>
 </body>
 </html>
+
 
 
